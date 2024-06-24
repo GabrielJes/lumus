@@ -1,5 +1,10 @@
+from core.core_functions import CoreFunctionManager
 
-import subprocess
-from test.test import *
-ConfigureEnvironment = subprocess.run(["bash","config"],shell=True)
-print(ConfigureEnvironment.returncode)
+ObjeticConfigureAPP = CoreFunctionManager
+
+with open('Localdata/data','r') as datafile:
+    for element in datafile:
+        output = ObjeticConfigureAPP.APTpackageManagement(packageManagement='apt',package=element)
+        print(element)
+        
+
